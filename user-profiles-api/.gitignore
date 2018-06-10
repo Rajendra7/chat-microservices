@@ -25,9 +25,3 @@
 /dist/
 /nbdist/
 /.nb-gradle/
-
-### Mine ###
-cache/
-eureka-server/cache/
-api-gateway/cache/
-user-profiles-api/cache/
