@@ -1,6 +1,6 @@
 package com.example.userprofilesapi.repositories;
 
-import com.example.reactchatspring.models.User;
+import com.example.userprofilesapi.models.UserProfile;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 public interface UserProfileRepository extends CrudRepository<UserProfile, Long> {
-    @Query("SELECT u FROM User u where u.nickname = :nickname")
+    @Query("SELECT u FROM UserProfile u where u.nickname = :nickname")
     Optional<UserProfile> findByNickname(@Param("nickname")String nickname);
 
 //    @Transactional

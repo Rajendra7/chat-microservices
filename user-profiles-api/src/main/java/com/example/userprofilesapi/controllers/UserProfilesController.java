@@ -13,52 +13,52 @@ import java.util.Optional;
 public class UserProfilesController {
 
     @Autowired
-    private UserProfilesRepository userProfilesRepository;
+    private UserProfileRepository userProfileRepository;
 
     @GetMapping("/userprofiles")
-    public Iterable<UserProfile> findAllUsers() {
-        return userProfilesRepository.findAll();
+    public Iterable<UserProfile> findAllUserProfiles() {
+        return userProfileRepository.findAll();
     }
 
-    @GetMapping("/userprofiles/{userId}")
-    public Optional<UserProfile> findUserProfileById(@PathVariable Long userId) {
-        return userProfilesRepository.findById(userId);
+    @GetMapping("/userprofiles/{userProfileId}")
+    public Optional<UserProfile> findUserProfileById(@PathVariable Long userProfileId) {
+        return userProfileRepository.findById(userProfileId);
     }
 
-    @DeleteMapping("/userprofiles/{userId}")
-    public HttpStatus deleteUserProfileById(@PathVariable Long userId) {
-        userProfilesRepository.deleteById(userId);
-        return HttpStatus.OK;
-    }
+//    @DeleteMapping("/userprofiles/{userProfileId}")
+//    public HttpStatus deleteUserProfileById(@PathVariable Long userProfileId) {
+//        userProfileRepository.deleteById(userProfileId);
+//        return HttpStatus.OK;
+//    }
 
     @GetMapping("/userprofiles/name/{nickname}")
     public Optional<UserProfile> findByNickname(@PathVariable String nickname) {
-        return userProfilesRepository.findByNickname(nickname);
+        return userProfileRepository.findByNickname(nickname);
     }
 
     @PostMapping("/userprofiles")
-    public User createNewUserProfile(@RequestBody UserProfile newUserProfile) {
-        return userProfilesRepository.save(newUserProfile);
+    public UserProfile createNewUserProfile(@RequestBody UserProfile newUserProfile) {
+        return userProfileRepository.save(newUserProfile);
     }
 
-    @PatchMapping("/userprofiles/{userId}")
-    public UserProfile updateUserProfileById(@PathVariable Long userId, @RequestBody UserProfile userProfileRequest) {
+//    @PatchMapping("/userprofiles/{userProfileId}")
+//    public UserProfile updateUserProfileById(@PathVariable Long userProfileId, @RequestBody UserProfile userProfileRequest) {
+//
+//        UserProfile userProfileFromDb = userProfileRepository.findById(userProfileId).get();
+//        userProfileFromDb.setBio(userProfileRequest.getBio());
+//        return userProfileRepository.save(userFromDb);
+//    }
+//    @DeleteMapping("/userprofiles/name/{nickname}")
+//    public HttpStatus deleteByNickname(@PathVariable String nickname) {
+//        userProfileRepository.deleteByNickname(nickname);
+//        return HttpStatus.OK;
+//    }
 
-        UserProfile userProfileFromDb = userProfilesRepository.findById(userId).get();
-        userProfileFromDb.setBio(userProfileRequest.getBio());
-        return userProfilesRepository.save(userFromDb);
-    }
-    @DeleteMapping("/userprofiles/name/{nickname}")
-    public HttpStatus deleteByNickname(@PathVariable String nickname) {
-        userProfilesRepository.deleteByNickname(nickname);
-        return HttpStatus.OK;
-    }
-
-    @PatchMapping("/userprofiles/name/{nickname}")
-    public UserProfile updateByNickname(@RequestBody UserProfile userProfileRequest, @PathVariable String nickname){
-        UserProfile userProfileFromDb = userProfileRepository.findByNickname(nickname).get();
-        userProfileFromDb.setNickname(userProfileRequest.getNickname());
-//        userFromDb.setPassword(userRequest.getPassword());
-        return userProfileRepository.save(userProfileFromDb);
-    }
+//    @PatchMapping("/userprofiles/name/{nickname}")
+//    public UserProfile updateByNickname(@RequestBody UserProfile userProfileRequest, @PathVariable String nickname){
+//        UserProfile userProfileFromDb = userProfileRepository.findByNickname(nickname).get();
+//        userProfileFromDb.setNickname(userProfileRequest.getNickname());
+////        userFromDb.setPassword(userRequest.getPassword());
+//        return userProfileRepository.save(userProfileFromDb);
+//    }
 }
