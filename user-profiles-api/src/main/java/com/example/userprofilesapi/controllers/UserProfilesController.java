@@ -20,10 +20,10 @@ public class UserProfilesController {
         return userProfileRepository.findAll();
     }
 
-    @GetMapping("/user-profiles/{userProfileId}")
-    public Optional<UserProfile> findUserProfileById(@PathVariable Long userProfileId) {
-        return userProfileRepository.findById(userProfileId);
-    }
+//    @GetMapping("/user-profiles/{userProfileId}")
+//    public Optional<UserProfile> findUserProfileById(@PathVariable Long userProfileId) {
+//        return userProfileRepository.findById(userProfileId);
+//    }
 
 //    @DeleteMapping("/user-profiles/{userProfileId}")
 //    public HttpStatus deleteUserProfileById(@PathVariable Long userProfileId) {
