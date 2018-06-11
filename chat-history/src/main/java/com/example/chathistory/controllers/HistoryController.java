@@ -16,8 +16,12 @@ public class HistoryController {
     private HistoryRepository historyRepository;
 
     @GetMapping("/history")
-    public Iterable<History> findAllHistory(){ return historyRepository.findAll()}
+    public Iterable<History> findAllHistory(){
+        return historyRepository.findAll();
+    }
 
     @PostMapping("/history")
-    public History createNewHistory(@Request History newMsg){ return historyRepository.save(newMsg)}
+    public History createNewHistory(@RequestBody History newMsg){
+        return historyRepository.save(newMsg);
+    }
 }

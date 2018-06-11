@@ -1,4 +1,4 @@
-package com.example.chathistory.models;
+package com.example.chathistory.repositories;
 
 import com.example.chathistory.models.History;
 import org.springframework.data.jpa.repository.Query;
