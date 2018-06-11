@@ -31,3 +31,5 @@ cache/
 eureka-server/cache/
 api-gateway/cache/
 user-profiles-api/cache/
+chat-history/cache/
+ChatMicro.pem
