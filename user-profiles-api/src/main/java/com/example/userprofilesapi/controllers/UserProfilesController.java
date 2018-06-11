@@ -15,50 +15,50 @@ public class UserProfilesController {
     @Autowired
     private UserProfileRepository userProfileRepository;
 
-    @GetMapping("/userprofiles")
+    @GetMapping("/user-profiles")
     public Iterable<UserProfile> findAllUserProfiles() {
         return userProfileRepository.findAll();
     }
 
-    @GetMapping("/userprofiles/{userProfileId}")
+    @GetMapping("/user-profiles/{userProfileId}")
     public Optional<UserProfile> findUserProfileById(@PathVariable Long userProfileId) {
         return userProfileRepository.findById(userProfileId);
     }
 
-//    @DeleteMapping("/userprofiles/{userProfileId}")
+//    @DeleteMapping("/user-profiles/{userProfileId}")
 //    public HttpStatus deleteUserProfileById(@PathVariable Long userProfileId) {
 //        userProfileRepository.deleteById(userProfileId);
 //        return HttpStatus.OK;
 //    }
 
-    @GetMapping("/userprofiles/name/{nickname}")
+    @GetMapping("/user-profiles/name/{nickname}")
     public Optional<UserProfile> findByNickname(@PathVariable String nickname) {
         return userProfileRepository.findByNickname(nickname);
     }
 
-    @PostMapping("/userprofiles")
+    @PostMapping("/user-profiles")
     public UserProfile createNewUserProfile(@RequestBody UserProfile newUserProfile) {
         return userProfileRepository.save(newUserProfile);
     }
 
-//    @PatchMapping("/userprofiles/{userProfileId}")
+//    @PatchMapping("/user-profiles/{userProfileId}")
 //    public UserProfile updateUserProfileById(@PathVariable Long userProfileId, @RequestBody UserProfile userProfileRequest) {
 //
 //        UserProfile userProfileFromDb = userProfileRepository.findById(userProfileId).get();
 //        userProfileFromDb.setBio(userProfileRequest.getBio());
 //        return userProfileRepository.save(userFromDb);
 //    }
-//    @DeleteMapping("/userprofiles/name/{nickname}")
-//    public HttpStatus deleteByNickname(@PathVariable String nickname) {
-//        userProfileRepository.deleteByNickname(nickname);
-//        return HttpStatus.OK;
-//    }
+    @DeleteMapping("/user-profiles/name/{nickname}")
+    public HttpStatus deleteByNickname(@PathVariable String nickname) {
+        userProfileRepository.deleteByNickname(nickname);
+        return HttpStatus.OK;
+    }
 
-//    @PatchMapping("/userprofiles/name/{nickname}")
-//    public UserProfile updateByNickname(@RequestBody UserProfile userProfileRequest, @PathVariable String nickname){
-//        UserProfile userProfileFromDb = userProfileRepository.findByNickname(nickname).get();
-//        userProfileFromDb.setNickname(userProfileRequest.getNickname());
-////        userFromDb.setPassword(userRequest.getPassword());
-//        return userProfileRepository.save(userProfileFromDb);
-//    }
+    @PatchMapping("/user-profiles/name/{nickname}")
+    public UserProfile updateByNickname(@RequestBody UserProfile userProfileRequest, @PathVariable String nickname){
+        UserProfile userProfileFromDb = userProfileRepository.findByNickname(nickname).get();
+        userProfileFromDb.setNickname(userProfileRequest.getNickname());
+//        userFromDb.setPassword(userRequest.getPassword());
+        return userProfileRepository.save(userProfileFromDb);
+    }
 }

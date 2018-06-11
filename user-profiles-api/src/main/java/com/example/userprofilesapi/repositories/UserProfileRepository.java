@@ -17,7 +17,7 @@ public interface UserProfileRepository extends CrudRepository<UserProfile, Long>
 //    void deleteByUsername(@Param("username")String username);
 
 
-//    @Transactional
-//    Long deleteByNickname(String nickname);
+    @Transactional
+    Long deleteByNickname(String nickname);
 
 }
