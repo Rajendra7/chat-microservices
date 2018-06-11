@@ -14,7 +14,7 @@ public class History {
     private Long id;
 
     @Column(name = "usr")
-    private String user;
+    private String usr;
 
     @Column(name = "msg")
     private String msg;

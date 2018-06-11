@@ -33,6 +33,7 @@ services:
     volumes:
       - ./user-profiles-api:/app
     depends_on:
+      - eureka
       - postgresdev
     command: './gradlew bootRun'
     environment:
@@ -54,6 +55,7 @@ services:
     volumes:
       - ./chat-history:/app
     depends_on:
+      - eureka
       - postgresdev
     command: './gradlew bootRun'
     environment:
