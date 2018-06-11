@@ -16,5 +16,5 @@ public class UserProfile {
     private String nickname;
 
     @Column(name = "bio")
-    private String password;
+    private String bio;
 }
