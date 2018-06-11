@@ -1,4 +1,4 @@
 INSERT INTO chat_history
-    (user, msg)
+    (usr, msg)
     VALUES
     ('server', 'Welcome to the chat!')
