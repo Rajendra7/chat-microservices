@@ -32,8 +32,8 @@ public class UserProfilesController {
 //    }
 
     @GetMapping("/user-profiles/name/{nickname}")
-    public Optional<UserProfile> findByNickname(@PathVariable String nickname) {
-        return userProfileRepository.findByNickname(nickname);
+    public UserProfile findByNickname(@PathVariable String nickname) {
+        return userProfileRepository.findByNickname(nickname).get();
     }
 
     @PostMapping("/user-profiles")
