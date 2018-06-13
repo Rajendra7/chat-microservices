@@ -18,4 +18,7 @@ public class History {
 
     @Column(name = "msg")
     private String msg;
+
+    @Column(name = "time")
+    private String time;
 }
