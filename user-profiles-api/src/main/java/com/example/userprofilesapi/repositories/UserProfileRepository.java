@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface UserProfileRepository extends CrudRepository<UserProfile, Long> {
     @Query("SELECT u FROM UserProfile u where u.nickname = :nickname")
-    Optional<UserProfile> findByNickname(@Param("nickname")String nickname);
+    public UserProfile findByNickname(@Param("nickname")String nickname);
 
 //    @Transactional
 //    @Query("DELETE from User u where u.username = :username")
