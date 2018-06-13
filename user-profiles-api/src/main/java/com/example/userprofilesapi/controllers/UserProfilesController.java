@@ -33,7 +33,7 @@ public class UserProfilesController {
 
     @GetMapping("/user-profiles/name/{nickname}")
     public UserProfile findByNickname(@PathVariable String nickname) {
-        return userProfileRepository.findByNickname(nickname).get();
+        return userProfileRepository.findByNickname(nickname);
     }
 
     @PostMapping("/user-profiles")
