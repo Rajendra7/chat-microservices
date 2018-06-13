@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 public interface UserProfileRepository extends CrudRepository<UserProfile, Long> {
-//    @Query("SELECT u FROM UserProfile u where u.nickname = ?1")
-//    UserProfile findByNickname(String nickname);
+    @Query("SELECT u FROM UserProfile u where u.nickname = ?1")
+    UserProfile findByNickname(String nickname);
 
 //    @Transactional
 //    @Query("DELETE from User u where u.username = :username")

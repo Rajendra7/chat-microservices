@@ -31,13 +31,9 @@ public class UserProfilesController {
 //        return HttpStatus.OK;
 //    }
 
-//    @GetMapping("/user-profiles/name/{nickname}")
-//    public UserProfile findByNickname(String nickname) {
-//        return userProfileRepository.findByNickname(nickname);
-//    }
     @GetMapping("/user-profiles/name/{nickname}")
     public UserProfile findByNickname(@PathVariable String nickname) {
-        return userProfileRepository.findOne(nickname);
+        return userProfileRepository.findByNickname(nickname);
     }
 
     @PostMapping("/user-profiles")
