@@ -31,9 +31,13 @@ public class UserProfilesController {
 //        return HttpStatus.OK;
 //    }
 
+//    @GetMapping("/user-profiles/name/{nickname}")
+//    public UserProfile findByNickname(String nickname) {
+//        return userProfileRepository.findByNickname(nickname);
+//    }
     @GetMapping("/user-profiles/name/{nickname}")
-    public UserProfile findByNickname(String nickname) {
-        return userProfileRepository.findByNickname(nickname);
+    public UserProfile findByNickname(@PathVariable String nickname) {
+        return userProfileRepository.findOne(nickname);
     }
 
     @PostMapping("/user-profiles")
@@ -56,7 +60,7 @@ public class UserProfilesController {
 
     @PatchMapping("/user-profiles/name/{nickname}")
     public UserProfile updateByNickname(@RequestBody UserProfile userProfileRequest, @PathVariable String nickname){
-        UserProfile userProfileFromDb = userProfileRepository.findByNickname(nickname);
+        UserProfile userProfileFromDb = userProfileRepository.findOne(nickname);
         userProfileFromDb.setBio(userProfileRequest.getBio());
 //        userFromDb.setPassword(userRequest.getPassword());
         return userProfileRepository.save(userProfileFromDb);
