@@ -56,7 +56,7 @@ public class UserProfilesController {
 
     @PatchMapping("/user-profiles/name/{nickname}")
     public UserProfile updateByNickname(@RequestBody UserProfile userProfileRequest, @PathVariable String nickname){
-        UserProfile userProfileFromDb = userProfileRepository.findOne(nickname);
+        UserProfile userProfileFromDb = userProfileRepository.findByNickname(nickname);
         userProfileFromDb.setBio(userProfileRequest.getBio());
 //        userFromDb.setPassword(userRequest.getPassword());
         return userProfileRepository.save(userProfileFromDb);
